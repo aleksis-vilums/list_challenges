@@ -175,23 +175,29 @@ end
 def g_happy(strg)
 
     strg.size.times do |i|
-        if strg[i] == "g" && strg[i + 1] != "g" || strg[i] == "g" && strg[i - 1] != "g"
-            return false
+        if strg[i] == "g" && strg[i + 1] == "g" || strg[i] == "g" && strg[i - 1] == "g"
+            return true
         end
     end
 
-    return true
+    return false
 
-    
 end
 
-puts g_happy("go to the best gg food place")
-puts g_happy('gg boys')
+# puts g_happy("go to the best gg food place")
+# puts g_happy('gg boys')
 
 def merge(list1, list2)
-    combined_list = list1, list2
+    combined_list = list1 + list2
 
+    combined_list.size.times do |i|
+        if combined_list[i] > combined_list[i + 1]
+            combined_list[i] = combined_list[i + 1]
+        end
+    end
+
+    return combined_list
 
 end
 
-# puts merge([1, 4, 2], [3, 9, 10]) #-> 1, 2, 3, 4, 9, 10
+puts merge([1, 4, 2], [3, 9, 10]) # -> (1, 2, 3, 4, 9, 10)
